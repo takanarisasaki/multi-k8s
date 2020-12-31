@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim   # Tell Kubernetes we want storage option the requirements in spec
+metadata:
+  name: database-persistent-volume-claim
+spec:    # If we attach this PVC to a pod, Kubernetes will find an instance of storage in the hard-drive that meets these requirements.
+  accessModes:
+    - ReadWriteOnce   # Can be used by a single node. ReadOnlyMany: Multiple nodes can read from this. ReadWriteMany: Can be read and written to by many nodes. 
+  resources:
+    requests:
+      storage: 2Gi    # 2 GB of space
